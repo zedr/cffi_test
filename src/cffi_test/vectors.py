@@ -19,10 +19,14 @@ class UInt32Array(object):
         return self._length
 
     def __getitem__(self, key):
-        if 0 < key < self._length:
+        if key < 0:
+            key = self._length - abs(key)
+        if 0 <= key < self._length:
             return self._arr[key]
         else:
-            raise IndexError(key)
+            raise IndexError(
+                "{0} index out of range".format(type(self).__name__)
+            )
 
     def __setitem__(self, key, value):
         self._arr[key] = value
