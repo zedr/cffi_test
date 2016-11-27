@@ -25,3 +25,4 @@ test: ${egg_link}
 # We never use variables when calling rm -rf
 clean:
 	@rm -rf .env .eggs build src/*.egg-info
+	@find src -name "*.pyc" -o -name "*.so" -exec rm "{}" \;
