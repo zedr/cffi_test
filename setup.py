@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='cff_test',
+    name='cffi-test',
     version='1.0',
     description='CFFI test',
     author='zedr',
@@ -14,6 +14,6 @@ setup(
     install_requires=['cffi'],
     setup_requires=['cffi'],
     cffi_modules=[
-        'cffi/build.py:ffi'
+        'src/c_ext/build.py:ffi'
     ]
 )

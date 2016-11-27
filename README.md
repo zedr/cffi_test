@@ -19,5 +19,11 @@ Testing
 -------
 After installing, run:
 
-    python scripts/test_perf.py
+    make test
+
+Measuring performance gains
+---------------------------
+You can check how much performance you are getting out of using CFFI with:
+
+    make perf
 

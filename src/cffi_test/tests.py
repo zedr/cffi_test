@@ -39,3 +39,7 @@ class RangeTests(unittest.TestCase):
 
     def test_range(self):
         self.assertEqual(list(Range(10)), list(range(10)))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -3,12 +3,10 @@ import os
 import cffi
 
 _here = os.path.dirname(__file__)
-_root = os.path.dirname(_here)
-_c_source_path = os.path.join(_root, "src", "c_ext")
 
 
 def c_src(fname):
-    with open(os.path.join(_c_source_path, fname)) as fd:
+    with open(os.path.join(_here, fname)) as fd:
         return fd.read()
 
 
