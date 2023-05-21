@@ -1,7 +1,7 @@
-python_version=2.7
+python_version=3
 python_cmd=python${python_version}
 venv_name=.env
-venv_cmd=virtualenv -p ${python_cmd} ${venv_name}
+venv_cmd=${python_cmd} -m venv ${venv_name}
 virtualenv=. ${venv_name}/bin/activate;
 egg_link=${venv_name}/local/lib/${python_cmd}/site-packages/cffi-test.egg-link
 
@@ -12,7 +12,11 @@ ${venv_name}:
 	${virtualenv} pip install -U setuptools
 
 ${egg_link}: ${venv_name}
+	${virtualenv} pip install -U pip
+	${virtualenv} pip install wheel
+	${virtualenv} pip install Cython
 	${virtualenv} pip install -e .
+	${virtualenv} python setup.py build_ext --inplace
 
 install: ${egg_link}
 

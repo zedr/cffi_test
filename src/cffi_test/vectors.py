@@ -2,7 +2,7 @@
 from cffi_test._utils.lib import make_u32a, make_u32r, free, sum_u32a
 
 
-class UInt32Array(object):
+class UInt32Array:
     """An array of uint32_t.
     """
     array_constructor = make_u32a
@@ -38,5 +38,9 @@ class UInt32Array(object):
         return sum_u32a(self._arr, self._length)
 
 
-class Uint32Range(UInt32Array):
+class UInt32Range(UInt32Array):
     array_constructor = make_u32r
+
+
+Array = UInt32Array
+Range = UInt32Range

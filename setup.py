@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
+from Cython.Build import cythonize
 
 setup(
     name='cffi-test',
@@ -11,9 +12,10 @@ setup(
     url='http://example.org',
     packages=find_packages("src"),
     package_dir={'': 'src'},
-    install_requires=['cffi'],
-    setup_requires=['cffi'],
+    install_requires=['cffi', 'Cython'],
+    setup_requires=['cffi', 'Cython'],
     cffi_modules=[
         'src/c_ext/build.py:ffi'
-    ]
+    ],
+    ext_modules = cythonize("src/cython_test/vectors.py")
 )
